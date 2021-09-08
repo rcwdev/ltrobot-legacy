@@ -391,6 +391,9 @@ client.on("chat", async (channel, tags, message, self) => {
             default: {
                 commandDatabase.forEach(async command => {
                     if (params[0].toLowerCase() == command.trigger) {
+                        if (!command.enabled) {
+                            return;
+                        };
                         let formattedResponse = command.response;
                         let responseVars = formattedResponse.match(/\{{.*?\}}/ig);
                         if (responseVars !== null) {
