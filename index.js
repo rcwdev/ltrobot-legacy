@@ -43,10 +43,7 @@ function fetchCommands() {
     .then(res => res.json())
     .then(body => {
         commandDatabase = body;
-        commandDatabase.forEach((command, index) => {
-            syslog(`Detected command ${index}: ${JSON.stringify(command)}`);
-        });
-    })
+    });
 };
 
 fetchCommands();
