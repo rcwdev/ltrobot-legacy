@@ -1,0 +1,18 @@
+{
+    "name": "",
+    "version": "",
+    "restdb": {
+        "api_key": "",
+        "url": ""
+    },
+    "twitch": {
+        "chat": {
+            "username": "",
+            "password": "",
+            "channels": []
+        }
+    },
+    "lastfm": {
+        "api_key": ""
+    }
+}

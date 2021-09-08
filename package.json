@@ -1,0 +1,16 @@
+{
+  "name": "ltrobot",
+  "version": "3.1.0",
+  "description": "The Twitch chatbot for Lt. Wilson.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment-timezone": "^0.5.33",
+    "node-fetch": "^2.6.1",
+    "tmi.js": "^1.8.5"
+  }
+}
