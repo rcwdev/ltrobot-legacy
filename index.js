@@ -42,6 +42,7 @@ function fetchCommands() {
     .catch(err => {if (err) throw err})
     .then(res => res.json())
     .then(body => {
+        syslog(`Fetched ${body.length} commands from the database.`);
         commandDatabase = body;
     });
 };
@@ -109,7 +110,7 @@ function generateRandom(min, max) {
 };
 
 function getLastFM(username) {
-    return fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${moduleConfig.settings.lastfm.api_key}&format=json&limit=1`)
+    return fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${config.lastfm.api_key}&format=json&limit=1`)
     .catch(err => {if (err) throw err})
     .then(res => res.json())
 };
@@ -384,7 +385,12 @@ client.on("chat", async (channel, tags, message, self) => {
                                         }
                                     }
                                     break;
+                                case "reload":
+                                    client.say(channel, `@${tags['display-name']} - attempted to reload any new commands added via web management.`);
+                                    fetchCommands();
+                                    break;
                             }
+                            break;
                     }
                 };
                 break;
